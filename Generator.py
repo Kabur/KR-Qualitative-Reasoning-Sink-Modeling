@@ -157,7 +157,6 @@ def letTimePass(state):
                 states[1].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
             elif quantity.value==0:
                 states[0].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
-                quantity in state.quantities:
 
         elif quantity.derivative == -1:
             if quantity.value == 2:  # if value is max 2=max
