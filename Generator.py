@@ -25,16 +25,51 @@ def getPossibleActions(quantity):
     return actions
 
 
-def generateStates(quantities, relationships):
+def isIdentical(state1, state2):
+    # todo: this
 
-    exoVars = getExogenousVars(quantities)
+    return True
 
-    # there is only 1: Inflow
-    for exoVar in exoVars:
-        actions = getPossibleActions(exoVar)
+def propagateI(relationship, graph):
 
-        for action in actions:
-            for relationship in relationships:
+    if relationship.sign == "+":
+        # take Q1 value
+        # check sign
+        # depending on sign of relation, update Q2 derivate
+
+        """ check if the state already exists in graph """
+        for item in graph:
+            if isIdentical(state, item):
+                found = True
+                break # todo: what to do after the break
+
+        # newVolume =
+
+
+def propagateP(relationship, graph)
+    pass
+
+
+def generateStates(currentState, relationships):
+    graph = []
+    graph.append(currentState)
+    # graph[0].append(neighbourState)
+
+    """ repeat until no more states can be produced """
+    while(1):
+        exoVars = getExogenousVars(currentState.quantities)
+
+        # there is only 1: Inflow
+        for exoVar in exoVars:
+            actions = getPossibleActions(exoVar)
+
+            """ Take every possible action"""
+            for action in actions:
+
+                """ How that action propagates through other quantities"""
+                for relationship in relationships:
+                    states = propagateI(relationship, graph)
+
 
 
 
