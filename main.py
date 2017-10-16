@@ -1,4 +1,9 @@
-
+from State import State
 
 if __name__ == "__main__":
-    print("test")
+    pass
+    # state = State("S0")
+    # state.printSelf()
+    # exit()
+
+
