@@ -1,6 +1,7 @@
-
+import Quantity
+import State
 def getExogenousVars(quantities):
-    exogenousArr=[]
+    exogenousArr = []
     for quantity in quantities:
         if quantity.exogenous:
             exogenousArr.append(quantity)
@@ -8,19 +9,21 @@ def getExogenousVars(quantities):
     return exogenousArr
 
 
-def findPossibleActions(quantity):
-    actions=[]
-    if quantity.derivative=="+":
+def getPossibleActions(quantity):
+    actions = []
+    if quantity.derivative == 1:
+        actions.append(0)
+        actions.append(1)
 
-        actions.append("0")
-        actions.append("+")
-    elif quantity.derivative=="-":
-        actions.append("0")
-        actions.append("-")
+    elif quantity.derivative == -1:
+        actions.append(0)
+        actions.append(-1)
+
+
     else:
-        actions.append("0")
-        actions.append("+")
-        actions.append("-")
+        actions.append(0)
+        actions.append(1)
+        actions.append(-1)
 
     return actions
 
@@ -39,7 +42,7 @@ class Generator:
         quantities=currState.quantities
         for quantity in quantities:
             if quantity.exogenous==True:
-                actions=findPossibleActions(quantity)
+                actions=getPossibleActions(quantity)
 
                 newStates = []
                 for action in actions:
@@ -47,6 +50,163 @@ class Generator:
 
 
 
+def isIdentical(state1, state2):
+    # todo: this
+
+    return True
+
+def propagateI(relationship, currentState):
+
+
+
+    # take Q1 value
+    # check sign
+    # depending on sign of relation, update Q2 derivate
+
+    source=relationship.source
+    currStateQuantities=currentState.quantities
+    for quantity in currStateQuantities:
+        if quantity.name==source:
+            value=quantity.value
+    target=relationship.target
+
+    NewQuantities=[]
+    for quantity in currStateQuantities:
+
+        if quantity.name==target:
+            newDerivative= relationship.sign* value
+            NewQuantities.append(Quantity(quantity.name, quantity.value, newDerivative, quantity.range, quantity.exogenous))
+
+        else:
+            NewQuantities.append(Quantity( quantity.name, quantity.value, quantity.derivative, quantity.range, quantity.exogenous))
+
+    NewState=State("blah",NewQuantities)
+    return NewState
+
+def propagateP(relationship, currentState):
+
+        # take Q1 value
+        # check sign
+        # depending on sign of relation, update Q2 derivate
+
+        source = relationship.source
+        currStateQuantities = currentState.quantities
+        for quantity in currStateQuantities:
+            if quantity.name == source:
+                value = quantity.derivative
+        target = relationship.target
+
+        NewQuantities = []
+        for quantity in currStateQuantities:
+
+            if quantity.name == target:
+                newDerivative = relationship.sign * value
+                NewQuantities.append(Quantity(quantity.name, quantity.value, newDerivative, quantity.range, quantity.exogenous))
+
+            else:
+                NewQuantities.append(Quantity(quantity.name, quantity.value, quantity.derivative, quantity.range, quantity.exogenous))
+
+        NewState = State("blah", NewQuantities)
+        return NewState
+    #
+    # """ check if the state already exists in graph """
+    # for item in graph:
+    #     if isIdentical(state, item):
+    #         found = True
+    #         break # todo: what to do after the break
+
+    # newVolume =
+
+
+def propagateVC(relationship, currentState):
+
+        # take Q1 value
+        # check sign
+        # depending on sign of relation, update Q2 derivate
+
+        source = relationship.source
+        currStateQuantities = currentState.quantities
+        for quantity in currStateQuantities:
+            if quantity.name == source:
+                value = quantity.value
+        target = relationship.target
+
+        NewQuantities = []
+        for quantity in currStateQuantities:
+
+            if quantity.name == target:
+                newvalue=  value
+                NewQuantities.append(Quantity(quantity.name, newvalue, quantity.derivative, quantity.range, quantity.exogenous))
+
+            else:
+                NewQuantities.append(Quantity(quantity.name, quantity.value, quantity.derivative, quantity.range, quantity.exogenous))
+
+        NewState = State("blah", NewQuantities)
+        return NewState
+
+def letTimePass(state):
+    ''' so here we need the time to pass to generate some states from the current state'''
+    newQuantities=[]
+    states=[[],[],[]]
+    for quantity in state.quantities:
+        if quantity.derivative==1:
+            if quantity.value==2: #if value is max 2=max
+                states[0].append(Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value==1:
+                states[0].append(Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
+                states[1].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value==0:
+                states[0].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
+                quantity in state.quantities:
+
+        elif quantity.derivative == -1:
+            if quantity.value == 2:  # if value is max 2=max
+                states[0].append(
+                    Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value == 1:
+                states[0].append(
+                    Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
+                states[1].append(
+                    Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value == 0:
+                states[0].append(
+                    Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
+
+        elif quantity.derivative == 0:
+            if quantity.value == 2:  # if value is max 2=max
+                states[0].append(
+                    Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value == 1:
+                states[0].append(
+                    Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
+            elif quantity.value == 0:
+                states[0].append(
+                    Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
+
+    return states
+
+
+
+
+def generateStates(currentState, relationships):
+    graph = []
+    graph.append(currentState)
+    # graph[0].append(neighbourState)
+
+    """ repeat until no more states can be produced """
+    while(1):
+        exoVars = getExogenousVars(currentState.quantities)
+
+        # there is only 1: Inflow
+        for exoVar in exoVars:
+            actions = getPossibleActions(exoVar)
+
+            """ Take every possible action"""
+            for action in actions:
+
+                """ How that action propagates through other quantities"""
+                for relationship in relationships:
+                    states = propagateI(relationship, currentState)
 
 
 
