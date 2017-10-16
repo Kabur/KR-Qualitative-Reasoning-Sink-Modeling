@@ -28,10 +28,24 @@ def findPossibleActions(quantity):
 
 
 class Generator:
+    def genNextState(self,currState):
 
-    exo=getExogenousVars()
-    for exogenous in exo:
-        actions=findPossibleActions()
+        # exo = getExogenousVars()
+        # for exogenous in exo:
+        #     actions = findPossibleActions()
+        #
+        # for action in actions:
+        #
+        quantities=currState.quantities
+        for quantity in quantities:
+            if quantity.exogenous==True:
+                actions=findPossibleActions(quantity)
+
+                newStates = []
+                for action in actions:
+                    newStates.append(currState,action)
+
+
 
 
 
