@@ -51,7 +51,16 @@ class Generator:
 
 
 def isIdentical(state1, state2):
-    # todo: this
+
+
+    for quantity1 in state1.quantities:
+        flag=False
+        for quantity2 in state2.quantities:
+            if quantity1==quantity2:
+                flag=True
+        if not flag:
+            return False
+
 
     return True
 
@@ -100,7 +109,12 @@ def propagateP(relationship, currentState):
         for quantity in currStateQuantities:
 
             if quantity.name == target:
+                if value ==2:
+                    value=1
+                elif value==-1:
+                    value=-1
                 newDerivative = relationship.sign * value
+
                 NewQuantities.append(Quantity(quantity.name, quantity.value, newDerivative, quantity.range, quantity.exogenous))
 
             else:
@@ -113,7 +127,7 @@ def propagateP(relationship, currentState):
     # for item in graph:
     #     if isIdentical(state, item):
     #         found = True
-    #         break # todo: what to do after the break
+    #         break
 
     # newVolume =
 
@@ -143,17 +157,26 @@ def propagateVC(relationship, currentState):
 
         NewState = State("blah", NewQuantities)
         return NewState
-
+def expandStateRelations(state,relationships):
+    for relationship in relationships:
+        if relationship.type == "I":
+            states = propagateI(relationship, state)
+        elif relationship.type == "P":
+            states = propagateP(relationship, state)
+        elif relationship.type == "VC":
+            states = propagateVC(relationship, state)
+        states.append(state)
+    return states
 def letTimePass(state):
     ''' so here we need the time to pass to generate some states from the current state'''
     newQuantities=[]
     states=[[],[],[]]
     for quantity in state.quantities:
         if quantity.derivative==1:
-            if quantity.value==2: #if value is max 2=max
-                states[0].append(Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
-            elif quantity.value==1:
-                states[0].append(Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
+            # if quantity.value==2: #if value is max 2=max
+            #     states[0].append(Quantity(quantity.name, 2, quantity.derivative, quantity.range, quantity.exogenous))
+            if quantity.value==1:
+                states[0].append(Quantity(quantity.name, 2,0, quantity.range, quantity.exogenous))
                 states[1].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
             elif quantity.value==0:
                 states[0].append(Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
@@ -164,12 +187,12 @@ def letTimePass(state):
                     Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
             elif quantity.value == 1:
                 states[0].append(
-                    Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
+                    Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous))
                 states[1].append(
                     Quantity(quantity.name, 1, quantity.derivative, quantity.range, quantity.exogenous))
-            elif quantity.value == 0:
-                states[0].append(
-                    Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
+            # elif quantity.value == 0:
+            #     states[0].append(
+            #         Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
 
         elif quantity.derivative == 0:
             if quantity.value == 2:  # if value is max 2=max
@@ -188,9 +211,21 @@ def letTimePass(state):
 
 
 def generateStates(currentState, relationships):
-    graph = []
-    graph.append(currentState)
+    graph = [[]]
+    graph[0].append(currentState)
+    graph[0].append(expandStateRelations(currentState))
     # graph[0].append(neighbourState)
+
+
+    '''let some time pass so we generate consequence states'''
+    freshStates = letTimePass(currentState)
+    for freshState in freshStates:
+        flag = False
+        for state in graph:
+            if isIdentical(freshState, state):
+                flag = True
+        if not flag:
+            graph[-1].append(freshState)
 
     """ repeat until no more states can be produced """
     while(1):
@@ -200,13 +235,24 @@ def generateStates(currentState, relationships):
         for exoVar in exoVars:
             actions = getPossibleActions(exoVar)
 
+
+
+
+
+
             """ Take every possible action"""
             for action in actions:
 
                 """ How that action propagates through other quantities"""
                 for relationship in relationships:
-                    states = propagateI(relationship, currentState)
+                    if relationship.type=="I":
+                        states = propagateI(relationship, currentState)
+                    elif relationship.type=="P":
+                        states = propagateP(relationship, currentState)
+                    elif relationship.type == "VC":
+                        states = propagateVC(relationship, currentState)
 
+                    graph[-1].append(states)
 
 
 
