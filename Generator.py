@@ -255,6 +255,29 @@ def checkState(state):
 
     return True
 
+def takeActions(state):
+    states1=[]
+    states2=[]
+    for quantity in state.quantities:
+
+        if quantity.exogenous:
+            if quantity.derivative == -1:
+                # tempQuantities = state.quantities
+                # tempQuantities
+                states1.append(State("meh",Quantity("name",quantity.value,0,quantity.range,True)))
+                states2.append(State("meh",Quantity("name",quantity.value,quantity.derivative,quantity.range,True)))
+            elif quantity.derivative==0:
+                states1.append(State("meh", Quantity("name", quantity.value, -1, quantity.range, True)))
+                states2.append(State("meh", Quantity("name", quantity.value, 1, quantity.range, True)))
+            elif quantity.derivative==1:
+                states1.append(State("meh", Quantity("name", quantity.value, 0, quantity.range, True)))
+                states2.append(State("meh",Quantity("name",quantity.value,quantity.derivative,quantity.range,True)))
+
+        else:
+            states1.append(State("meh", Quantity("name", quantity.value, quantity.derivative, quantity.range, True)))
+            states2.append(State("meh", Quantity("name", quantity.value, quantity.derivative, quantity.range, True)))
+    return [states1,states2]
+
 
 def generateStates(initialState, relationships):
     """
@@ -279,7 +302,6 @@ def generateStates(initialState, relationships):
         freshStates2 = []
         freshStates3 = []
 
-        # todo: each of these 3 need to propagate the relationships as well
         freshStates1 = propagateTime(currentState)
 
         if checkState(currentState):

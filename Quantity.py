@@ -8,6 +8,9 @@ class Quantity:
         self.range = range
         self.exogenous = exogenous
 
+
+
+
     def printSelf(self):
         print("*"*100)
         print("name: ", self.name)
