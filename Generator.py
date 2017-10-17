@@ -1,5 +1,5 @@
 from Quantity import Quantity
-import State
+from State import State
 
 
 def getExogenousVars(quantities):
@@ -164,21 +164,21 @@ def propagateVC(relationship, currentState):
 
 def propagateRelationships(state, relationships):
     states = []
+
     for relationship in relationships:
         if relationship.type == "I":
-            states = propagateI(relationship, state)
+            state = propagateI(relationship, state)
         elif relationship.type == "P":
-            states = propagateP(relationship, state)
+            state = propagateP(relationship, state)
         elif relationship.type == "VC":
-            states = propagateVC(relationship, state)
-        states.append(state)
-    return states
+            state = propagateVC(relationship, state)
+    return state
 
 
 def propagateTime(state):
     ''' so here we need the time to pass to generate some states from the current state'''
     newQuantities = []
-    states = [[], [], []]
+    states = [[], []]
 
     for quantity in state.quantities:
         if quantity.derivative == 1:
@@ -214,7 +214,13 @@ def propagateTime(state):
                 states[0].append(
                     Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
 
-    return states
+    realStates=[]
+    realStates[0]=State("blah",states[0])
+    realStates[1] = State("blah", states[1])
+
+
+
+    return realStates
 
 
 # def findUnexpanded(graph):
@@ -273,8 +279,7 @@ def generateStates(initialState, relationships):
         freshStates2 = []
         freshStates3 = []
 
-        # todo: THIS NEEDS TO RETURN LIST OF STATES
-        #todo: each of these 3 need to propagate the relationships as well
+        # todo: each of these 3 need to propagate the relationships as well
         freshStates1 = propagateTime(currentState)
 
         if checkState(currentState):
@@ -293,21 +298,21 @@ def generateStates(initialState, relationships):
             graph[i].append(state)
             for j in range(i):
                 if not isIdentical(graph[j][0], state):
-                    graph[i + end].append(state)
+                    graph[end].append(state)
                     end += 1
 
         for state in freshStates2:
             graph[i].append(state)
             for j in range(i):
                 if not isIdentical(graph[j][0], state):
-                    graph[i + end].append(state)
+                    graph[ end].append(state)
                     end += 1
 
         for state in freshStates3:
             graph[i].append(state)
             for j in range(i):
                 if not isIdentical(graph[j][0], state):
-                    graph[i + end].append(state)
+                    graph[ end].append(state)
                     end += 1
 
         i += 1
