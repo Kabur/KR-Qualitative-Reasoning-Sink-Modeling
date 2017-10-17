@@ -9,8 +9,13 @@ if __name__ == "__main__":
     outflow = Quantity("Outflow", "0", "0", {"0", "+", "max"}, False)
     quantities = [inflow, volume, outflow]
 
-    relationship1 = Relationship(0, "+", inflow, volume)
-    relationships = [relationship1]
+    R1 = Relationship(0, "+", inflow, volume)
+    R2 = Relationship(0, "-", outflow, volume)
+    R3 = Relationship(1, "+", volume, outflow)
+    # VC(Volume(max), Outflow(max)):
+    # R4 = Relationship(2, "", volume, outflow)
+    # R5 = Relationship(2, "", volume, outflow)
+    relationships = [R1, R2, R3]
 
     state = State("Initial", quantities)
 
