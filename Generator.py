@@ -207,9 +207,18 @@ def letTimePass(state):
 
     return states
 
-
-
-
+def createFuturestates(graph):
+    statesToAppend=[]
+    for potentialState in graph[-1]:
+        flag=False
+        for motherState in graph[:-1]:
+            if  isIdentical(potentialState,motherState):
+                flag=True
+        if flag==False:
+            statesToAppend.append(potentialState)
+    for state in statesToAppend:
+        graph.append(state)
+    return graph
 def generateStates(currentState, relationships):
     graph = [[]]
     graph[0].append(currentState)
@@ -225,7 +234,16 @@ def generateStates(currentState, relationships):
             if isIdentical(freshState, state):
                 flag = True
         if not flag:
-            graph[-1].append(freshState)
+            graph[0].append(freshState)
+
+    graph=createFuturestates(graph)
+
+
+    '''expand anexpanded nodes'''
+    while (1):
+
+
+
 
     """ repeat until no more states can be produced """
     while(1):
