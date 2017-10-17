@@ -209,9 +209,9 @@ def letTimePass(state):
 
 def createFuturestates(graph):
     statesToAppend=[]
-    for potentialState in graph[-1]:
+    for potentialState in graph[0]:
         flag=False
-        for motherState in graph[:-1]:
+        for motherState in graph[0:]:
             if  isIdentical(potentialState,motherState):
                 flag=True
         if flag==False:
