@@ -52,7 +52,10 @@ class Generator:
 
 def isIdentical(state1, state2):
 
+    print(state1)
 
+    # if len(state1)==0 or len(state2)==0:
+    #     return False
     for quantity1 in state1.quantities:
         flag=False
         for quantity2 in state2.quantities:
@@ -158,6 +161,7 @@ def propagateVC(relationship, currentState):
         NewState = State("blah", NewQuantities)
         return NewState
 def expandStateRelations(state,relationships):
+    states=[]
     for relationship in relationships:
         if relationship.type == "I":
             states = propagateI(relationship, state)
@@ -171,6 +175,7 @@ def letTimePass(state):
     ''' so here we need the time to pass to generate some states from the current state'''
     newQuantities=[]
     states=[[],[],[]]
+
     for quantity in state.quantities:
         if quantity.derivative==1:
             # if quantity.value==2: #if value is max 2=max
@@ -206,9 +211,14 @@ def letTimePass(state):
                     Quantity(quantity.name, 0, quantity.derivative, quantity.range, quantity.exogenous))
 
     return states
-
+def findUnexpanded(graph):
+    for i in range(len(graph)):
+        if len(graph[i])==1:
+            return i
+    return -10
 def createFuturestates(graph):
     statesToAppend=[]
+
     for potentialState in graph[0]:
         flag=False
         for motherState in graph[0:]:
@@ -222,55 +232,69 @@ def createFuturestates(graph):
 def generateStates(currentState, relationships):
     graph = [[]]
     graph[0].append(currentState)
-    graph[0].append(expandStateRelations(currentState))
-    # graph[0].append(neighbourState)
 
 
-    '''let some time pass so we generate consequence states'''
-    freshStates = letTimePass(currentState)
-    for freshState in freshStates:
-        flag = False
-        for state in graph:
-            if isIdentical(freshState, state):
-                flag = True
-        if not flag:
-            graph[0].append(freshState)
-
-    graph=createFuturestates(graph)
-
-
-    '''expand anexpanded nodes'''
-    while (1):
-
-
-
-
-    """ repeat until no more states can be produced """
     while(1):
-        exoVars = getExogenousVars(currentState.quantities)
-
-        # there is only 1: Inflow
-        for exoVar in exoVars:
-            actions = getPossibleActions(exoVar)
-
-
+        i = findUnexpanded(graph)
+        if i==-10:
+            break
+        graph[i].append(expandStateRelations(currentState,relationships))
+        # graph[0].append(neighbourState)
 
 
+        '''let some time pass so we generate consequence states'''
+        freshStates = letTimePass(currentState)
+        print("f" ,freshStates)
+        for state in freshStates:
+
+            if len(state)!=0:
+                for freshState in state:
+                    flag = False
+                    for state in graph:
+                        if isIdentical(freshState, state):
+                            flag = True
+                    if not flag:
+                        graph[i].append(freshState)
+
+                graph=createFuturestates(graph)
 
 
-            """ Take every possible action"""
-            for action in actions:
 
-                """ How that action propagates through other quantities"""
-                for relationship in relationships:
-                    if relationship.type=="I":
-                        states = propagateI(relationship, currentState)
-                    elif relationship.type=="P":
-                        states = propagateP(relationship, currentState)
-                    elif relationship.type == "VC":
-                        states = propagateVC(relationship, currentState)
+        print(graph)
 
-                    graph[-1].append(states)
-
+    #
+    # '''expand anexpanded nodes'''
+    # while (1):
+    #
+    #
+    #
+    #
+    # """ repeat until no more states can be produced """
+    # while(1):
+    #     exoVars = getExogenousVars(currentState.quantities)
+    #
+    #     # there is only 1: Inflow
+    #     for exoVar in exoVars:
+    #         actions = getPossibleActions(exoVar)
+    #
+    #
+    #
+    #
+    #
+    #
+    #         """ Take every possible action"""
+    #         for action in actions:
+    #
+    #             """ How that action propagates through other quantities"""
+    #             for relationship in relationships:
+    #                 if relationship.type=="I":
+    #                     states = propagateI(relationship, currentState)
+    #                 elif relationship.type=="P":
+    #                     states = propagateP(relationship, currentState)
+    #                 elif relationship.type == "VC":
+    #                     states = propagateVC(relationship, currentState)
+    #
+    #                 graph[-1].append(states)
+    #
 
 
