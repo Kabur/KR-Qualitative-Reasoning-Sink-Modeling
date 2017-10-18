@@ -101,8 +101,38 @@ def propagateI(states, relationships):
     return states
 
 
+def propagateConstraint(states, parentState):
+    """ the constraint: when transitioning from point to range value in any quantity, action cannot be taken """
+    apply = False
+    # print(parentState.toString())
+
+    # check if we need to apply the constraint at all
+    for Q in parentState.quantities:
+        if (Q.value == 0 and Q.derivative == 1) or (Q.value == 2 and Q.derivative == -1):
+            apply = True
+            # print("Apply!")
+
+    # print("Children: ")
+    # for state in states:
+    #     print(state.toString())
+
+    if apply is True:
+        for state in states[:]:
+            for i, Q in enumerate(state.quantities):
+                # We can only take action on exo variables
+                if Q.exogenous:
+                    # if the derivative of the exo quantity changed(==we took an action), remove the state
+                    if Q.derivative != parentState.quantities[i].derivative:
+                        states.remove(state)
+                        # print("removing state: ")
+                        # print(state.toString())
+                        # print("done")
+
+    return states
+
+
 def generateStates(state, relationships):
-    """"""
+    """ Generates children states for a state """
     """1. resolve time: update the values given the derivatives in every possible combination"""
     """2. For every value combination, take all possible combinations of derivatives -> pu them in states """
     """3. Check all states with all relationships and discard those that are invalid """
@@ -154,14 +184,14 @@ def generateStates(state, relationships):
     """ Get all permutations of states """
     permutations = list(itertools.product(*combinations))
     for permutation in permutations:
-        state = State("", permutation)
-        states.append(state)
-        # state.printSelf()
+        tempState = State(-1, permutation)  # the id is assigned later
+        states.append(tempState)
 
     """ Check each state with all the relationships, add to the list if valid """
     states = propagateVC(states, relationships)
     states = propagateP(states, relationships)
     states = propagateI(states, relationships)
+    states = propagateConstraint(states, state)
 
     return states
 
@@ -185,7 +215,6 @@ def createGraph(initialState, relationships):
 
             for j in range(end + 1):
                 if isIdentical(graph[j][0], state):
-                    # print("-" * 150, " found identical")
                     state.id = graph[j][0].id
                     identical = True
                     break
@@ -199,5 +228,6 @@ def createGraph(initialState, relationships):
             break
 
         i += 1
+        # exit()
 
     return graph, end

@@ -9,9 +9,10 @@ class State:
             print(quantity.id, ": ", quantity.value, " ", quantity.derivative)
 
     def toString(self):
-        str = ""
+        foo = ""
+        foo+=str(self.id)+"\n"
         for i in range(len(self.quantities)):
-            str += self.quantities[i].id + " " + str(self.quantities[i].value) + " " + str(
+            foo += str(self.quantities[i].name) + " " + str(self.quantities[i].value) + " " + str(
                 self.quantities[i].derivative) + "\n"
 
-        return str
+        return foo

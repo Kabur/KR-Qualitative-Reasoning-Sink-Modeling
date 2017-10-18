@@ -26,6 +26,7 @@ if __name__ == "__main__":
     relationships = [R1, R2, R3, R4, R5]
 
     graph, end = Generator.createGraph(initialState, relationships)
+    # todo: insight trace
 
     plotGraph(graph, end)
 
