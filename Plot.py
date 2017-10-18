@@ -7,8 +7,9 @@ def plotGraph(mygraph, end):
 
     myStrGraph = [list() for i in range(10000)]
     for i in range(end):
-        if len(mygraph[i]) == 1:
-            break
+        # if len(mygraph[i]) == 1:
+        #
+        #     break
         for j in range(len(mygraph[i])):
             myStrGraph[i].append(mygraph[i][j].toString())
 
