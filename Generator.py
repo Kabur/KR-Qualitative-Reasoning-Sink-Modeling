@@ -162,7 +162,7 @@ def generateStates(state, relationships):
     states = propagateVC(states, relationships)
     states = propagateP(states, relationships)
     states = propagateI(states, relationships)
-
+    
     return states
 
 
@@ -172,6 +172,8 @@ def createGraph(initialState, relationships):
     graph = [list() for i in range(N)]
     graph[0].append(initialState)
     i = 0
+    id = initialState.id
+
     while 1:
         currentState = graph[i][0]
 
@@ -184,11 +186,15 @@ def createGraph(initialState, relationships):
             for j in range(end + 1):
                 if isIdentical(graph[j][0], state):
                     print("-" * 150, " found identical")
+                    state.id = graph[j][0].id
                     identical = True
                     break
             if identical is False:
                 end += 1  # end is initialized as 0
+                id += 1
+                state.id = id
                 graph[end].append(state)
+
 
         if i == end:
             break

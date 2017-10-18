@@ -15,7 +15,7 @@ if __name__ == "__main__":
     volume = Quantity("Volume", 0, 0, [0, 1, 2], False)
     outflow = Quantity("Outflow", 0, 0, [0, 1, 2], False)
     quantities = [inflow, volume, outflow]
-    initialState = State("Initial", quantities)
+    initialState = State(0, quantities)
 
     R1 = Relationship("I", 1, "Inflow", "Volume")
     R2 = Relationship("I", -1, "Outflow", "Volume")
