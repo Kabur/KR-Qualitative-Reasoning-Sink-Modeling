@@ -16,11 +16,19 @@ def plotGraph(mygraph, end):
     print(myStrGraph)
     nodes = []
     edges = []
-    mygraph
+
     for i in range(end):
-        nodes.append(mygraph[i][0])
-        for state in mygraph[i][1:]:
-            edges.append((mygraph[i][0], state))
+        nodes.append((str(mygraph[i][0].id),{'label':mygraph[i][0].toString()}))
+        for j in range(1,len(mygraph[i])):
+            edges.append((str(mygraph[i][0].id), str(mygraph[i][j].id)))
+
+
+
+
+    # for i in range(end):
+    #     nodes.append(str(mygraph[i][0].id))
+    #     for state in mygraph[i][1:]:
+    #         edges.append((mygraph[i][0].id, state.id))
 
     def add_nodes(graph, nodes):
         for n in nodes:
