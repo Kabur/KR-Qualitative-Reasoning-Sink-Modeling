@@ -1,26 +1,26 @@
 import graphviz as gv
 import functools
 
-def plotGraph(mygraph,end):
+
+def plotGraph(mygraph, end):
     graph = functools.partial(gv.Graph, format='svg')
     digraph = functools.partial(gv.Digraph, format='svg')
 
-    myStrGraph= [list() for i in range(10000)]
+    myStrGraph = [list() for i in range(10000)]
     for i in range(end):
-        if len(mygraph[i])==1:
+        if len(mygraph[i]) == 1:
             break
-        for j in  range(len(mygraph[i])):
+        for j in range(len(mygraph[i])):
             myStrGraph[i].append(mygraph[i][j].toString())
 
     print(myStrGraph)
-    nodes=[]
-    edges=[]
+    nodes = []
+    edges = []
     mygraph
     for i in range(end):
         nodes.append(mygraph[i][0])
         for state in mygraph[i][1:]:
-            edges.append((mygraph[i][0],state))
-
+            edges.append((mygraph[i][0], state))
 
     def add_nodes(graph, nodes):
         for n in nodes:

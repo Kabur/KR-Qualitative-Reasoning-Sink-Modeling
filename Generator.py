@@ -141,7 +141,8 @@ def generateStates(state, relationships):
         elif quantity.derivative == 1:
             if quantity.value == 0:
                 combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
+                """ removed because value is going from point to range value -> cannot take an action inbetween """
+                # combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
             if quantity.value == 1:
                 combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
                 combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
@@ -176,13 +177,6 @@ def createGraph(initialState, relationships):
 
         freshStates = generateStates(currentState, relationships)
 
-        # print("Current State: ")
-        # currentState.printSelf()
-        # print("Fresh States: ")
-        # for num, state in enumerate(freshStates):
-        #     print(num)
-        #     state.printSelf()
-
         for state in freshStates:
             graph[i].append(state)
             identical = False
@@ -200,8 +194,5 @@ def createGraph(initialState, relationships):
             break
 
         i += 1
-
-    # todo: this loop
-    # todo: plotting
 
     return graph, end
