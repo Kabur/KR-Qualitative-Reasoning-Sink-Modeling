@@ -4,6 +4,7 @@ class State:
         self.quantities = quantities
 
     def printSelf(self):
+        print("*"*100)
         for quantity in self.quantities:
             print(quantity.name, ": ", quantity.value, " ", quantity.derivative)
 

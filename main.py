@@ -1,25 +1,29 @@
 from State import State
 from Relationship import Relationship
 from Quantity import Quantity
-from Generator import generateStates
+import Generator
 
 if __name__ == "__main__":
-    inflow = Quantity("Inflow", "0", "0", {"0", "+"}, True)
-    volume = Quantity("Volume", "0", "0", {"0", "+", "max"}, False)
-    outflow = Quantity("Outflow", "0", "0", {"0", "+", "max"}, False)
+    inflow = Quantity("Inflow", 0, 0, [0, 1], True)
+    volume = Quantity("Volume", 0, 0, [0, 1, 2], False)
+    outflow = Quantity("Outflow", 0, 0, [0, 1, 2], False)
     quantities = [inflow, volume, outflow]
 
-    R1 = Relationship(0, "+", inflow, volume)
-    R2 = Relationship(0, "-", outflow, volume)
-    R3 = Relationship(1, "+", volume, outflow)
-    # VC(Volume(max), Outflow(max)):
+    R1 = Relationship("I", 1, "Inflow", "Volume")
+    R2 = Relationship("I", -1, "Outflow", "Volume")
+    R3 = Relationship("P", 1, "Volume", "Outflow")
+    R4 = Relationship("VC", 2, "Volume", "Outflow")
+    R5 = Relationship("VC", 0, "Volume", "Outflow")
+
+
+    # todo: how to represent this: VC(Volume(max), Outflow(max)) ?
     # R4 = Relationship(2, "", volume, outflow)
     # R5 = Relationship(2, "", volume, outflow)
-    relationships = [R1, R2, R3]
+    relationships = [R1, R2, R3, R4, R5]
 
     state = State("Initial", quantities)
 
-    states = generateStates(state, relationships)
+    graph = Generator.createGraph(state, relationships)
 
     # state = State("S0")
     # state.printSelf()
