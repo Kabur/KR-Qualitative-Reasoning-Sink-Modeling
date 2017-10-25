@@ -101,8 +101,29 @@ def propagateI(states, relationships):
     return states
 
 
+def propagateConstraint(states, parentState):
+    """ the constraint: when transitioning from point to range value in any quantity, action cannot be taken """
+    apply = False
+
+    # check if we need to apply the constraint at all
+    for Q in parentState.quantities:
+        if (Q.value == 0 and Q.derivative == 1) or (Q.value == 2 and Q.derivative == -1):
+            apply = True
+
+    if apply is True:
+        for state in states[:]:
+            for i, Q in enumerate(state.quantities):
+                # We can only take action on exo variables
+                if Q.exogenous:
+                    # if the derivative of the exo quantity changed(==we took an action), remove the state
+                    if Q.derivative != parentState.quantities[i].derivative:
+                        states.remove(state)
+
+    return states
+
+
 def generateStates(state, relationships):
-    """"""
+    """ Generates children states for a state """
     """1. resolve time: update the values given the derivatives in every possible combination"""
     """2. For every value combination, take all possible combinations of derivatives -> pu them in states """
     """3. Check all states with all relationships and discard those that are invalid """
@@ -141,7 +162,7 @@ def generateStates(state, relationships):
         elif quantity.derivative == 1:
             if quantity.value == 0:
                 combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                """ removed because value is going from point to range value -> cannot take an action inbetween """
+                # """ removed because value is going from point to range value -> cannot take an action inbetween """
                 # combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
             if quantity.value == 1:
                 combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
@@ -154,39 +175,17 @@ def generateStates(state, relationships):
     """ Get all permutations of states """
     permutations = list(itertools.product(*combinations))
     for permutation in permutations:
-        state = State("", permutation)
-        states.append(state)
-        # state.printSelf()
+        reason = "temp"
+        tempState = State(-1, permutation)  # , state, reason)  # the id is assigned later
+        states.append(tempState)
 
     """ Check each state with all the relationships, add to the list if valid """
     states = propagateVC(states, relationships)
     states = propagateP(states, relationships)
     states = propagateI(states, relationships)
-    
+    states = propagateConstraint(states, state)
+
     return states
-
-def takeActions(state):
-    states1=[]
-    states2=[]
-    for quantity in state.quantities:
-
-        if quantity.exogenous:
-            if quantity.derivative == -1:
-                # tempQuantities = state.quantities
-                # tempQuantities
-                states1.append(State("meh",Quantity("name",quantity.value,0,quantity.range,True)))
-                states2.append(State("meh",Quantity("name",quantity.value,quantity.derivative,quantity.range,True)))
-            elif quantity.derivative==0:
-                states1.append(State("meh", Quantity("name", quantity.value, -1, quantity.range, True)))
-                states2.append(State("meh", Quantity("name", quantity.value, 1, quantity.range, True)))
-            elif quantity.derivative==1:
-                states1.append(State("meh", Quantity("name", quantity.value, 0, quantity.range, True)))
-                states2.append(State("meh",Quantity("name",quantity.value,quantity.derivative,quantity.range,True)))
-
-        else:
-            states1.append(State("meh", Quantity("name", quantity.value, quantity.derivative, quantity.range, True)))
-            states2.append(State("meh", Quantity("name", quantity.value, quantity.derivative, quantity.range, True)))
-    return [states1,states2]
 
 
 def createGraph(initialState, relationships):
@@ -208,8 +207,16 @@ def createGraph(initialState, relationships):
 
             for j in range(end + 1):
                 if isIdentical(graph[j][0], state):
-                    print("-" * 150, " found identical")
                     state.id = graph[j][0].id
+
+                    # """ if we found an identical state, add all of it's parents and reasons to the new state and vice-versa"""
+                    # for idx, parentItem in enumerate(graph[j][0].parents):
+                    #         state.parents.append(parentItem)
+                    #         state.reasons.append(graph[j][0].reasons[idx])
+                    #
+                    # graph[j][0].parents.append(state.parents[0])
+                    # graph[j][0].reasons.append(state.reasons[0])
+
                     identical = True
                     break
             if identical is False:
@@ -218,10 +225,10 @@ def createGraph(initialState, relationships):
                 state.id = id
                 graph[end].append(state)
 
-
         if i == end:
             break
 
         i += 1
+        # exit()
 
     return graph, end

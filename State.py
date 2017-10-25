@@ -1,7 +1,12 @@
 class State:
-    def __init__(self, id, quantities):
+
+    def __init__(self, id, quantities): #, parent, reason):
         self.id = id
         self.quantities = quantities
+        # self.parents = [parent]
+        # self.reasons = [reason]
+
+
 
     def printSelf(self):
         print("*" * 100)

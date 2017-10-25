@@ -26,7 +26,7 @@ if __name__ == "__main__":
     relationships = [R1, R2, R3, R4, R5]
 
     graph, end = Generator.createGraph(initialState, relationships)
-
+    prettyPrint.printGraph(graph, end)
     plotGraph(graph, end)
 
     # prettyPrint.printGraph(graph)
