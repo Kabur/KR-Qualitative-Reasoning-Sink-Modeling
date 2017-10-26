@@ -1,8 +1,9 @@
 class State:
 
-    def __init__(self, id, quantities): #, parent, reason):
+    def __init__(self, id, quantities,resultOf=None): #, parent, reason):
         self.id = id
         self.quantities = quantities
+        self.resultOf=resultOf
         # self.parents = [parent]
         # self.reasons = [reason]
 

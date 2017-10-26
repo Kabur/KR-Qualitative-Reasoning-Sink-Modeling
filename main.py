@@ -11,9 +11,9 @@ if __name__ == "__main__":
     # volume = Quantity("Volume", 1, 1, [0, 1, 2], False)
     # outflow = Quantity("Outflow", 1, 1, [0, 1, 2], False)
     """ test scenario2 """
-    inflow = Quantity("Inflow", 0, 0, [0, 1], True)
-    volume = Quantity("Volume", 0, 0, [0, 1, 2], False)
-    outflow = Quantity("Outflow", 0, 0, [0, 1, 2], False)
+    inflow = Quantity("Inflow", 0, 0, [0, 1], True,"G")
+    volume = Quantity("Volume", 0, 0, [0, 1, 2], False,"G")
+    outflow = Quantity("Outflow", 0, 0, [0, 1, 2], False,"G")
     quantities = [inflow, volume, outflow]
     initialState = State(0, quantities)
 

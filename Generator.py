@@ -127,49 +127,57 @@ def generateStates(state, relationships):
     """1. resolve time: update the values given the derivatives in every possible combination"""
     """2. For every value combination, take all possible combinations of derivatives -> pu them in states """
     """3. Check all states with all relationships and discard those that are invalid """
+    for q in state.quantities:
+        if q.exogenous==True:
+            previousAction=q.value
+
+
+
+
     N = len(state.quantities)  # for our case it's always 3
     combinations = [list() for i in range(N)]
 
     for i, quantity in enumerate(state.quantities):
         if quantity.derivative == 0:
             if quantity.value == 0:
-                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 0, 1, quantity.range, quantity.exogenous))
+
+                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous,"t"))
+                combinations[i].append(Quantity(quantity.name, 0, 1, quantity.range, quantity.exogenous,"t+a"))
             if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
+                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous,"t"))
+                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous,"t+a"))
+                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous,"t+a"))
 
             # if not quantity.exogenous:
             if 2 in quantity.range:
                 if quantity.value == 2:
-                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous))
+                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous,"t"))
+                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous,"t+a"))
 
         elif quantity.derivative == -1:
             if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous))
+                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous,"t"))
+                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous,"t+a"))
+                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous,"t+a"))
 
             # if not quantity.exogenous:
             if 2 in quantity.range:
                 if quantity.value == 2:
-                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
+                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous,"t"))
+                    combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous,"t"))
+                    combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous,"t+a"))
 
         elif quantity.derivative == 1:
             if quantity.value == 0:
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
+                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous,"t"))
                 # """ removed because value is going from point to range value -> cannot take an action inbetween """
                 # combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
             if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
+                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous,"t"))
+                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous,"t+a"))
                 # if not quantity.exogenous:
                 if 2 in quantity.range:
-                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous))
+                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous,"t+a"))
 
     states = []
     """ Get all permutations of states """

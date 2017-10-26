@@ -2,6 +2,20 @@ import graphviz as gv
 import functools
 
 
+def findStateReasons(graph,end):
+    for i in range(end + 1):
+        for j in range(1, len(graph[i])):
+            isOnlyTime=True
+            for quantity in graph[i][j].quantities:
+                if quantity.resultOf=="t+a":
+                    isOnlyTime=False
+
+            if isOnlyTime:
+                graph[i][j].resultOf="T"
+            else:
+                graph[i][j].resultOf="T+A"
+
+
 def plotGraph(mygraph, end):
     graph = functools.partial(gv.Graph, format='svg')
     digraph = functools.partial(gv.Digraph, format='svg')
@@ -14,11 +28,11 @@ def plotGraph(mygraph, end):
     # print(myStrGraph)
     nodes = []
     edges = []
-
+    findStateReasons(mygraph,end)
     for i in range(end + 1):
         nodes.append((str(mygraph[i][0].id), {'label': mygraph[i][0].toString()}))
         for j in range(1, len(mygraph[i])):
-            edges.append((str(mygraph[i][0].id), str(mygraph[i][j].id)))
+            edges.append(((str(mygraph[i][0].id), str(mygraph[i][j].id)),{'label':mygraph[i][j].resultOf}))
 
     def add_nodes(graph, nodes):
         for n in nodes:
