@@ -42,15 +42,15 @@ if __name__ == "__main__":
     graph, end = Generator.createGraph(initialState, relationships)
     graph2, end2 = Generator.createGraph(extendedInitialState, extendedRelationships)
 
-    # prettyPrint.printGraph(graph, end)
+    prettyPrint.printGraph(graph, end, "graph_basic.txt")
     prettyPrint.createTrace(graph, end)
-    prettyPrint.printTrace(graph, end, "basic.txt")
+    prettyPrint.printTrace(graph, end, "trace_basic.txt")
 
-    # prettyPrint.printGraph(graph2, end2)
+    prettyPrint.printGraph(graph2, end2, "graph_extended.txt")
     prettyPrint.createTrace(graph2, end2)
-    prettyPrint.printTrace(graph2, end2, "extended.txt")
+    prettyPrint.printTrace(graph2, end2, "trace_extended.txt")
 
-    plotGraph(graph, end, "basic")
-    plotGraph(graph2, end2, "extended")
+    plotGraph(graph, end, "graph_basic")
+    plotGraph(graph2, end2, "graph_extended")
 
     # prettyPrint.printGraph(graph)
