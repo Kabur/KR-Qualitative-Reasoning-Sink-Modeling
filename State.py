@@ -1,12 +1,9 @@
 class State:
 
-    def __init__(self, id, quantities,reason=""): #, parent, reason):
+    def __init__(self, id, quantities,reason=""):
         self.id = id
         self.quantities = quantities
         self.reasons=[reason]
-        # self.parents = [parent]
-        # self.reasons = [reason]
-
 
 
     def printSelf(self):
@@ -19,7 +16,7 @@ class State:
         # foo+= "State " + str(self.id)+"\n"
         for i in range(len(self.quantities)):
             foo += (str(self.quantities[i].name) + " " + str(self.quantities[i].value) + " " + str(
-                self.quantities[i].derivative) + "\n").replace("1", "+").replace("-1", "-").replace("2", "Max")
+                self.quantities[i].derivative) + "\n").replace("-1", "-").replace("1", "+").replace("2", "Max")
 
         return foo
 
@@ -29,13 +26,6 @@ class State:
         foo+= "State " + str(self.id)+"\n"
         for i in range(len(self.quantities)):
             foo += (str(self.quantities[i].name) + " " + str(self.quantities[i].value) + " " + str(
-                self.quantities[i].derivative) + "\n").replace("1", "+").replace("-1", "-").replace("2", "Max")
-
-        return foo
-
-    def joinReasons(self):
-        foo = ""
-        for reason in self.reasons:
-            foo += reason
+                self.quantities[i].derivative) + "\n").replace("-1", "-").replace("1", "+").replace("2", "Max")
 
         return foo

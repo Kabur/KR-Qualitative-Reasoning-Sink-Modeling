@@ -63,81 +63,81 @@ Pressure Max 0
 Height Max 0
 "]
 	9 [label="State 9
-Inflow + -+
+Inflow + -
 Volume + +
 Outflow + +
 Pressure + +
 Height + +
 "]
 	10 [label="State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 Pressure + 0
 Height + 0
 "]
 	11 [label="State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 Pressure Max 0
 Height Max 0
 "]
 	12 [label="State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
-Pressure + -+
-Height + -+
+Inflow + -
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
 "]
 	13 [label="State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
-Pressure + -+
-Height + -+
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
 "]
 	14 [label="State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
-Pressure + -+
-Height + -+
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
 "]
 	15 [label="State 15
-Inflow + -+
-Volume Max -+
-Outflow Max -+
-Pressure Max -+
-Height Max -+
+Inflow + -
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
 "]
 	16 [label="State 16
 Inflow + 0
-Volume Max -+
-Outflow Max -+
-Pressure Max -+
-Height Max -+
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
 "]
 	17 [label="State 17
 Inflow 0 0
-Volume Max -+
-Outflow Max -+
-Pressure Max -+
-Height Max -+
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
 "]
 	18 [label="State 18
 Inflow + +
-Volume + -+
-Outflow + -+
-Pressure + -+
-Height + -+
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
 "]
 	19 [label="State 19
 Inflow 0 +
-Volume + -+
-Outflow + -+
-Pressure + -+
-Height + -+
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
 "]
 	0 -> 0
 	0 -> 1

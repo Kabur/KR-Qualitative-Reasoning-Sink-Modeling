@@ -106,9 +106,6 @@ def propagateI(states, relationships, parentState):
 
         """ Here comes the heavy hardcoding... I'm sorry it had to be done >{ """
         """ if the parent state is in equilibrium """
-        # if parentState.id == 5:
-        #     print(Q3_target.name, Q3_target.value)
-        #     exit()
 
         if parentState.quantities[1].derivative == 0:
             if parentState.quantities[0].derivative == 1 and Q3_target.value != 2:
@@ -133,21 +130,6 @@ def propagateI(states, relationships, parentState):
                 if c != 0 and c != -1:
                     states.remove(state)
                     continue
-
-
-
-
-
-        # if c == 0:
-        #     if Q2_source.value != 2:
-        #         if parentState.quantities[0].derivative == 1 and parentState.quantities[2].derivative != 1:
-        #             states.remove(state)
-        #             continue
-        # if c == -1:
-        #     if (parentState.quantities[0].derivative == 0) or (parentState.quantities[0].derivative == 1 and parentState.quantities[2].derivative != -1):
-        #         states.remove(state)
-        #         continue
-
 
     return states
 
@@ -178,9 +160,6 @@ def generateStates(state, relationships):
     """1. resolve time: update the values given the derivatives in every possible combination"""
     """2. For every value combination, take all possible combinations of derivatives -> pu them in states """
     """3. Check all states with all relationships and discard those that are invalid """
-    for q in state.quantities:
-        if q.exogenous == True:
-            previousAction = q.value
 
     N = len(state.quantities)  # for our case it's always 3
     combinations = [list() for i in range(N)]
@@ -195,7 +174,6 @@ def generateStates(state, relationships):
                 combinations[i].append(Quantity(Q.name, 1, 1, Q.range, Q.exogenous, reason))
                 combinations[i].append(Quantity(Q.name, 1, -1, Q.range, Q.exogenous, reason))
 
-            # if not Q.exogenous:
             if 2 in Q.range:
                 if Q.value == 2:
                     combinations[i].append(Quantity(Q.name, 2, 0, Q.range, Q.exogenous, reason))
@@ -207,7 +185,6 @@ def generateStates(state, relationships):
                 combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
                 combinations[i].append(Quantity(Q.name, 0, 0, Q.range, Q.exogenous, reason))
 
-            # if not Q.exogenous:
             if 2 in Q.range:
                 if Q.value == 2:
                     # """ removed because point magnitude has to change if there is a derivative """
@@ -224,7 +201,6 @@ def generateStates(state, relationships):
             if Q.value == 1:
                 combinations[i].append(Quantity(Q.name, 1, 1, Q.range, Q.exogenous, reason))
                 combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
-                # if not Q.exogenous:
                 if 2 in Q.range:
                     combinations[i].append(Quantity(Q.name, 2, 0, Q.range, Q.exogenous, reason))
 
@@ -232,8 +208,7 @@ def generateStates(state, relationships):
     """ Get all permutations of states """
     permutations = list(itertools.product(*combinations))
     for permutation in permutations:
-        reason = "temp"
-        tempState = State(-1, permutation)  # , state, reason)  # the id is assigned later
+        tempState = State(-1, permutation)
         states.append(tempState)
 
     """ Check each state with all the relationships, add to the list if valid """

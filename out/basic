@@ -45,59 +45,59 @@ Volume Max 0
 Outflow Max 0
 "]
 	9 [label="State 9
-Inflow + -+
+Inflow + -
 Volume + +
 Outflow + +
 "]
 	10 [label="State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 "]
 	11 [label="State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 "]
 	12 [label="State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 "]
 	13 [label="State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 "]
 	14 [label="State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 "]
 	15 [label="State 15
-Inflow + -+
-Volume Max -+
-Outflow Max -+
+Inflow + -
+Volume Max -
+Outflow Max -
 "]
 	16 [label="State 16
 Inflow + 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 "]
 	17 [label="State 17
 Inflow 0 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 "]
 	18 [label="State 18
 Inflow + +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 "]
 	19 [label="State 19
 Inflow 0 +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 "]
 	0 -> 0
 	0 -> 1

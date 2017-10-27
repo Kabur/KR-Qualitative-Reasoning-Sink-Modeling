@@ -4,7 +4,7 @@ def printGraph(graph, end):
         for j in range(len(graph[i])):
             id_array.append(graph[i][j].id)
 
-        print(id_array[0], " --> ", id_array[1:])  # , "  ", len(id_array[1:]))
+        print(id_array[0], " --> ", id_array[1:])
 
     for i in range(end + 1):
         print(graph[i][0].toString2())
@@ -96,8 +96,8 @@ def createTrace(graph, end):
                                 "from + to 0")
                         if Q2.value == 1 and Q2.derivative == 1:
                             child.reasons.append(
-                                "Time passed, but influences of Inflow and Outflow were not enough to change the "
-                                "derivative of Volume, given that - is a range value")
+                                "Time passed, but influences of Inflow and Outflow were not such that the derivative "
+                                "would change")
 
                     if Q1.value == 2 and Q1.derivative == -1:
                         if Q2.value == 1 and Q2.derivative == -1:
@@ -112,19 +112,22 @@ def createTrace(graph, end):
                     if Q1.value == 2 and Q1.derivative == 0:
                         if Q2.value == 2 and Q2.derivative == 0:
                             child.reasons.append(
-                                "Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same")
+                                "Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume "
+                                "stayed the same")
                         if Q2.value == 2 and Q2.derivative == -1:
                             child.reasons.append(
-                                "Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -")
+                                "Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of "
+                                "VOlume decreased to -")
 
                     if Q1.value == 1 and Q1.derivative == -1:
                         if Q2.value == 1 and Q2.derivative == -1:
                             child.reasons.append(
-                                "Time passed, but influences of Inflow and Outflow were not enough to change the "
-                                "derivative of Volume, given that - is a range value")
+                                "Time passed, but influences of Inflow and Outflow were not such that the derivative "
+                                "would change")
                         if Q2.value == 1 and Q2.derivative == 0:
                             child.reasons.append(
                                 "Magnitude of Inflow influenced the derivative such that it changed from - to 0")
                         if Q2.value == 0 and Q2.derivative == 0:
                             child.reasons.append(
-                                "Magnitude dropped to 0 because of the negative derivative in the previous state, therefore automatically putting the derivative to 0")
+                                "Magnitude dropped to 0 because of the negative derivative in the previous state, "
+                                "therefore automatically putting the derivative to 0")

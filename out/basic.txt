@@ -72,7 +72,7 @@ Volume + +
 Outflow + +
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 4
@@ -99,7 +99,7 @@ Volume + +
 Outflow + +
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -186,7 +186,7 @@ Volume + +
 Outflow + +
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -213,7 +213,7 @@ Volume + +
 Outflow + +
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 4
@@ -235,16 +235,16 @@ Volume: Magnitude of Volume reached Maximum, therefore the derivative automatica
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 9
-Inflow + -+
+Inflow + -
 Volume + +
 Outflow + +
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
@@ -253,7 +253,7 @@ Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 
@@ -288,7 +288,7 @@ Volume: Magnitudes of Inflow and Outflow stayed the same, therefore nothing chan
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
@@ -323,7 +323,7 @@ Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of 
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 
@@ -333,23 +333,23 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 ****************************************************************************************************
 From State 9
-Inflow + -+
+Inflow + -
 Volume + +
 Outflow + +
 
 Following states have been generated: 
 --------------------------------------------------
 State 9
-Inflow + -+
+Inflow + -
 Volume + +
 Outflow + +
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
@@ -358,7 +358,7 @@ Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 
@@ -372,7 +372,7 @@ Volume + +
 Outflow + +
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -395,16 +395,16 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 ****************************************************************************************************
 From State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
 Following states have been generated: 
 --------------------------------------------------
 State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
@@ -412,8 +412,8 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
@@ -421,8 +421,8 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
@@ -430,14 +430,14 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 ****************************************************************************************************
 From State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 
 Following states have been generated: 
 --------------------------------------------------
 State 11
-Inflow + -+
+Inflow + -
 Volume Max 0
 Outflow Max 0
 
@@ -446,9 +446,9 @@ Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of 
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 15
-Inflow + -+
-Volume Max -+
-Outflow Max -+
+Inflow + -
+Volume Max -
+Outflow Max -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
@@ -465,8 +465,8 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 16
 Inflow + 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
@@ -474,8 +474,8 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 17
 Inflow 0 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
@@ -483,23 +483,23 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 ****************************************************************************************************
 From State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 
 Following states have been generated: 
 --------------------------------------------------
 State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
@@ -509,11 +509,11 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -527,11 +527,11 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 0
@@ -546,18 +546,18 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Following states have been generated: 
 --------------------------------------------------
 State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -571,11 +571,11 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 18
 Inflow + +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 4
@@ -588,16 +588,16 @@ Volume: Magnitude of Inflow influenced the derivative such that it changed from 
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 10
-Inflow + -+
+Inflow + -
 Volume + 0
 Outflow + 0
 
@@ -608,18 +608,18 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Following states have been generated: 
 --------------------------------------------------
 State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 0
@@ -633,11 +633,11 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 19
 Inflow 0 +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 1
@@ -651,16 +651,16 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 ****************************************************************************************************
 From State 15
-Inflow + -+
-Volume Max -+
-Outflow Max -+
+Inflow + -
+Volume Max -
+Outflow Max -
 
 Following states have been generated: 
 --------------------------------------------------
 State 12
-Inflow + -+
-Volume + -+
-Outflow + -+
+Inflow + -
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
@@ -669,15 +669,15 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 16
 Inflow + 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 
 Following states have been generated: 
 --------------------------------------------------
 State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
@@ -686,15 +686,15 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 17
 Inflow 0 0
-Volume Max -+
-Outflow Max -+
+Volume Max -
+Outflow Max -
 
 Following states have been generated: 
 --------------------------------------------------
 State 14
 Inflow 0 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
@@ -703,18 +703,18 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 18
 Inflow + +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Following states have been generated: 
 --------------------------------------------------
 State 18
 Inflow + +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 4
@@ -728,11 +728,11 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 --------------------------------------------------
 State 13
 Inflow + 0
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: Action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 7
@@ -747,18 +747,18 @@ Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Vo
 ****************************************************************************************************
 From State 19
 Inflow 0 +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Following states have been generated: 
 --------------------------------------------------
 State 18
 Inflow + +
-Volume + -+
-Outflow + -+
+Volume + -
+Outflow + -
 
 Inflow: No action was taken on the exogenous variable Inflow
-Volume: Time passed, but influences of Inflow and Outflow were not enough to change the derivative of Volume, given that - is a range value
+Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
 --------------------------------------------------
 State 4
