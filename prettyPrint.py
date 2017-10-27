@@ -1,24 +1,43 @@
-def printGraph(graph, end):
-    for i in range(end + 1):
-        id_array = []
-        for j in range(len(graph[i])):
-            id_array.append(graph[i][j].id)
+def printGraph(graph, end, filename=None):
+    if filename is not None:
+        with open("out/" + filename, "w") as f:
 
-        print(id_array[0], " --> ", id_array[1:])
+            for i in range(end + 1):
+                id_array = []
+                for j in range(len(graph[i])):
+                    id_array.append(graph[i][j].id)
 
-    for i in range(end + 1):
-        print(graph[i][0].toString2())
+                f.write(str(id_array[0]) + " --> " + str(id_array[1:]) + "\n")
 
+            for i in range(end + 1):
+                f.write(graph[i][0].toString2() + '\n')
+    else:
+        for i in range(end + 1):
+            id_array = []
+            for j in range(len(graph[i])):
+                id_array.append(graph[i][j].id)
+
+            print(id_array[0], " --> ", id_array[1:])
+
+        for i in range(end + 1):
+            print(graph[i][0].toString2())
 
 def printTrace(graph, end, filename="temp"):
     with open("out/" + filename, "w") as f:
+
+        # for i in range(end + 1):
+        #     id_array = []
+        #     for j in range(len(graph[i])):
+        #         id_array.append(graph[i][j].id)
+        #
+        #     f.write(id_array[0], " --> ", id_array[1:])
 
         for i in range(end + 1):
             f.write("*" * 100 + '\n')
             parent = graph[i][0]
             f.write("From State " + str(parent.id) + '\n')
             f.write(parent.toString() + '\n')
-            f.write("Following states have been generated: " + '\n')
+            f.write("The following states have been generated: " + '\n')
 
             for j in range(1, len(graph[i])):
                 child = graph[i][j]
@@ -26,12 +45,14 @@ def printTrace(graph, end, filename="temp"):
                 f.write("State " + str(child.id) + '\n')
                 f.write(child.toString() + '\n')
                 for k, reason in enumerate(child.reasons[1:]):
-                    f.write(child.quantities[k].name + ": " + reason + '\n')
+                    f.write((child.quantities[k].name + ": " + reason + '\n').ljust(10))
 
             f.write("*" * 100 + '\n')
 
 
 def createTrace(graph, end):
+    """ This could have been done during the generating itself, but I found it cluttered the code too much so we put it here separately """
+
     for idx in range(end + 1):
         parent = graph[idx][0]
 

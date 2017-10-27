@@ -3,770 +3,1082 @@ From State 0
 Inflow 0 0
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 0
 Inflow 0 0
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, Volume magnitude and derivative stayed at 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 1
 Inflow 0 +
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, Volume magnitude and derivative stayed at 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 1
 Inflow 0 +
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 2
 Inflow + +
 Volume 0 +
 Outflow 0 +
+Pressure 0 +
+Height 0 +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is greater than magnitude of Inflow, therefore the derivative changed to +
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 2
 Inflow + +
 Volume 0 +
 Outflow 0 +
+Pressure 0 +
+Height 0 +
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 3
 Inflow + +
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude was a point, derivative non-zero, therefore the magnitude changed to a range value
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 3
 Inflow + +
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 3
 Inflow + +
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 5
 Inflow + +
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 6
 Inflow + 0
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 3
 Inflow + +
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is greater than magnitude of Outflow, therefore derivative of Volume changed to +
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 6
 Inflow + 0
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is greater than magnitude of Outflow, therefore derivative of Volume changed to +
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 5
 Inflow + +
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 5
 Inflow + +
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 6
 Inflow + 0
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 6
 Inflow + 0
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 3
 Inflow + +
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 5
 Inflow + +
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 9
 Inflow + -
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 11
 Inflow + -
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow stayed the same, therefore nothing changed for Volume
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow stayed the same, therefore nothing changed for Volume
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow stayed the same, therefore nothing changed for Volume
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 5
 Inflow + +
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 11
 Inflow + -
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 9
 Inflow + -
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 9
 Inflow + -
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 11
 Inflow + -
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 6
 Inflow + 0
 Volume + +
 Outflow + +
+Pressure + +
+Height + +
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow was greater than the magnitude of outflow, therefore changing the Volume derivative from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume reached Maximum, therefore the derivative automatically changed from + to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 12
 Inflow + -
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 14
 Inflow 0 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore derivative of Volume changed to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 11
 Inflow + -
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 11
 Inflow + -
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 15
 Inflow + -
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 8
 Inflow + 0
 Volume Max 0
 Outflow Max 0
+Pressure Max 0
+Height Max 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitudes of Inflow and Outflow are equal, therefore the derivative of Volume stayed the same
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 16
 Inflow + 0
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 17
 Inflow 0 0
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow is lower than magnitude of Outflow, therefore the derivative of VOlume decreased to -
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 12
 Inflow + -
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 12
 Inflow + -
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 14
 Inflow 0 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 0
 Inflow 0 0
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude dropped to 0 because of the negative derivative in the previous state, therefore automatically putting the derivative to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 18
 Inflow + +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 12
 Inflow + -
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 10
 Inflow + -
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 14
 Inflow 0 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 14
 Inflow 0 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 0
 Inflow 0 0
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude dropped to 0 because of the negative derivative in the previous state, therefore automatically putting the derivative to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 19
 Inflow 0 +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 1
 Inflow 0 +
 Volume 0 0
 Outflow 0 0
+Pressure 0 0
+Height 0 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude dropped to 0 because of the negative derivative in the previous state, therefore automatically putting the derivative to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 15
 Inflow + -
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 12
 Inflow + -
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 16
 Inflow + 0
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 17
 Inflow 0 0
 Volume Max -
 Outflow Max -
+Pressure Max -
+Height Max -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 14
 Inflow 0 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Volume dropped from point value Max to +, the derivative stayed the same becuase magnitude of Outflow is still greater than magnitude of Inflow
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 18
 Inflow + +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 18
 Inflow + +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 13
 Inflow + 0
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 7
 Inflow + 0
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: Action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************
 ****************************************************************************************************
 From State 19
 Inflow 0 +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
-Following states have been generated: 
+The following states have been generated: 
 --------------------------------------------------
 State 18
 Inflow + +
 Volume + -
 Outflow + -
+Pressure + -
+Height + -
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Time passed, but influences of Inflow and Outflow were not such that the derivative would change
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 --------------------------------------------------
 State 4
 Inflow + +
 Volume + 0
 Outflow + 0
+Pressure + 0
+Height + 0
 
 Inflow: No action was taken on the exogenous variable Inflow
 Volume: Magnitude of Inflow influenced the derivative such that it changed from - to 0
 Outflow: Outflow is equal to Volume in derivative and magnitude because of P+(Volume, Outflow) and VC(Volume(Max), Outflow(Max)) and VC(Volume(0), Outflow(0))
+Pressure: Pressure is equal to Volume in derivative and magnitude because of P+(Volume, Pressure) and VC(Volume(Max), Pressure(Max)) and VC(Volume(0), Pressure(0))
+Height: Height is equal to Volume in derivative and magnitude because of P+(Volume, Height) and VC(Volume(Max), Height(Max)) and VC(Volume(0), Height(0))
 ****************************************************************************************************

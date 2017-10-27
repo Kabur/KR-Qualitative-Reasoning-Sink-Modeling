@@ -1,0 +1,160 @@
+0 --> [0, 1]
+1 --> [2]
+2 --> [3]
+3 --> [3, 4, 5, 6, 7, 8]
+4 --> [3, 6]
+5 --> [5, 8]
+6 --> [6, 7, 8, 3, 4, 5, 9, 10, 11]
+7 --> [7, 4, 10]
+8 --> [8, 5, 11]
+9 --> [9, 10, 11, 6, 7, 8]
+10 --> [12, 13, 14]
+11 --> [11, 15, 8, 16, 17]
+12 --> [12, 10, 13, 7, 14, 0]
+13 --> [13, 7, 18, 4, 12, 10]
+14 --> [14, 0, 19, 1]
+15 --> [12]
+16 --> [13]
+17 --> [14]
+18 --> [18, 4, 13, 7]
+19 --> [18, 4]
+State 0
+Inflow 0 0
+Volume 0 0
+Outflow 0 0
+Pressure 0 0
+Height 0 0
+
+State 1
+Inflow 0 +
+Volume 0 0
+Outflow 0 0
+Pressure 0 0
+Height 0 0
+
+State 2
+Inflow + +
+Volume 0 +
+Outflow 0 +
+Pressure 0 +
+Height 0 +
+
+State 3
+Inflow + +
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+
+State 4
+Inflow + +
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+
+State 5
+Inflow + +
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+
+State 6
+Inflow + 0
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+
+State 7
+Inflow + 0
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+
+State 8
+Inflow + 0
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+
+State 9
+Inflow + -
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+
+State 10
+Inflow + -
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+
+State 11
+Inflow + -
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+
+State 12
+Inflow + -
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+
+State 13
+Inflow + 0
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+
+State 14
+Inflow 0 0
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+
+State 15
+Inflow + -
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+
+State 16
+Inflow + 0
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+
+State 17
+Inflow 0 0
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+
+State 18
+Inflow + +
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+
+State 19
+Inflow 0 +
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+
