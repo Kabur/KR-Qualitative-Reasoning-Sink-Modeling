@@ -2,37 +2,23 @@ import graphviz as gv
 import functools
 
 
-def findStateReasons(graph,end):
-    for i in range(end + 1):
-        for j in range(1, len(graph[i])):
-            isOnlyTime=True
-            for quantity in graph[i][j].quantities:
-                if quantity.resultOf=="t+a":
-                    isOnlyTime=False
-
-            if isOnlyTime:
-                graph[i][j].resultOf="T"
-            else:
-                graph[i][j].resultOf="T+A"
-
-
-def plotGraph(mygraph, end):
+def plotGraph(mygraph, end, filename="g4"):
     graph = functools.partial(gv.Graph, format='svg')
     digraph = functools.partial(gv.Digraph, format='svg')
 
     myStrGraph = [list() for i in range(10000)]
     for i in range(end + 1):
         for j in range(len(mygraph[i])):
-            myStrGraph[i].append(mygraph[i][j].toString())
+            myStrGraph[i].append(mygraph[i][j].toString2())
 
     # print(myStrGraph)
     nodes = []
     edges = []
-    findStateReasons(mygraph,end)
+
     for i in range(end + 1):
-        nodes.append((str(mygraph[i][0].id), {'label': mygraph[i][0].toString()}))
+        nodes.append((str(mygraph[i][0].id), {'label': mygraph[i][0].toString2()}))
         for j in range(1, len(mygraph[i])):
-            edges.append(((str(mygraph[i][0].id), str(mygraph[i][j].id)),{'label':mygraph[i][j].resultOf}))
+            edges.append((str(mygraph[i][0].id), str(mygraph[i][j].id)))
 
     def add_nodes(graph, nodes):
         for n in nodes:
@@ -50,4 +36,4 @@ def plotGraph(mygraph, end):
                 graph.edge(*e)
         return graph
 
-    add_edges(add_nodes(digraph(), nodes), edges).render('img/g4')
+    add_edges(add_nodes(digraph(), nodes), edges).render('out/' + filename)
