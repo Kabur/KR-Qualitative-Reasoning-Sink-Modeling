@@ -57,7 +57,7 @@ def propagateP(states, relationships):
     return states
 
 
-def propagateI(states, relationships):
+def propagateI(states, relationships, parentState):
     # print("PROPAGATING I's")
     list1 = []
     relationship1 = relationships[0]
@@ -80,23 +80,56 @@ def propagateI(states, relationships):
         b = Q2_source.value * relationship2.sign
         c = Q3_target.derivative
 
+        """ attempt at QR calculus """
         # if a > 0 and a < b then c can be anything
         if a > 0 and b >= 0:
             if not c > 0:
                 states.remove(state)
+                continue
         if a < 0 and b <= 0:
             if not c < 0:
                 states.remove(state)
+                continue
         if a == 0:
             if b > 0:
                 if not c > 0:
                     states.remove(state)
+                    continue
             if b == 0:
                 if not c == 0:
                     states.remove(state)
+                    continue
             if b < 0:
                 if not c < 0:
                     states.remove(state)
+                    continue
+
+        """ Here comes the heavy hardcoding... I'm sorry it had to be done >{ """
+        """ if the parent state is in equilibrium """
+
+        if parentState.quantities[1].derivative == 0:
+            if parentState.quantities[0].derivative == 1 and Q3_target.value != 2:
+                if c != 1:
+                    states.remove(state)
+                    continue
+            elif parentState.quantities[0].derivative == 1 and Q3_target.value == 2:
+                if c != 0:
+                    states.remove(state)
+                    continue
+
+            if parentState.quantities[0].derivative == 0:
+                if c != 0:
+                    states.remove(state)
+                    continue
+
+            if parentState.quantities[0].derivative == -1 and Q3_target.value != 2:
+                if c != -1:
+                    states.remove(state)
+                    continue
+            elif parentState.quantities[0].derivative == -1 and Q3_target.value == 2:
+                if c != 0 and c != -1:
+                    states.remove(state)
+                    continue
 
     return states
 
@@ -104,17 +137,11 @@ def propagateI(states, relationships):
 def propagateConstraint(states, parentState):
     """ the constraint: when transitioning from point to range value in any quantity, action cannot be taken """
     apply = False
-    # print(parentState.toString())
 
     # check if we need to apply the constraint at all
     for Q in parentState.quantities:
         if (Q.value == 0 and Q.derivative == 1) or (Q.value == 2 and Q.derivative == -1):
             apply = True
-            # print("Apply!")
-
-    # print("Children: ")
-    # for state in states:
-    #     print(state.toString())
 
     if apply is True:
         for state in states[:]:
@@ -124,11 +151,8 @@ def propagateConstraint(states, parentState):
                     # if the derivative of the exo quantity changed(==we took an action), remove the state
                     if Q.derivative != parentState.quantities[i].derivative:
                         states.remove(state)
-                        # print("removing state: ")
-                        # print(state.toString())
-                        # print("done")
 
-    return states
+    return states, apply
 
 
 def generateStates(state, relationships):
@@ -136,62 +160,62 @@ def generateStates(state, relationships):
     """1. resolve time: update the values given the derivatives in every possible combination"""
     """2. For every value combination, take all possible combinations of derivatives -> pu them in states """
     """3. Check all states with all relationships and discard those that are invalid """
+
     N = len(state.quantities)  # for our case it's always 3
     combinations = [list() for i in range(N)]
+    reason = ""
+    for i, Q in enumerate(state.quantities):
+        if Q.derivative == 0:
+            if Q.value == 0:
+                combinations[i].append(Quantity(Q.name, 0, 0, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 0, 1, Q.range, Q.exogenous, reason))
+            if Q.value == 1:
+                combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 1, 1, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 1, -1, Q.range, Q.exogenous, reason))
 
-    for i, quantity in enumerate(state.quantities):
-        if quantity.derivative == 0:
-            if quantity.value == 0:
-                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 0, 1, quantity.range, quantity.exogenous))
-            if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
+            if 2 in Q.range:
+                if Q.value == 2:
+                    combinations[i].append(Quantity(Q.name, 2, 0, Q.range, Q.exogenous, reason))
+                    combinations[i].append(Quantity(Q.name, 2, -1, Q.range, Q.exogenous, reason))
 
-            # if not quantity.exogenous:
-            if 2 in quantity.range:
-                if quantity.value == 2:
-                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous))
+        elif Q.derivative == -1:
+            if Q.value == 1:
+                combinations[i].append(Quantity(Q.name, 1, -1, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 0, 0, Q.range, Q.exogenous, reason))
 
-        elif quantity.derivative == -1:
-            if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 0, 0, quantity.range, quantity.exogenous))
+            if 2 in Q.range:
+                if Q.value == 2:
+                    # """ removed because point magnitude has to change if there is a derivative """
+                    # combinations[i].append(Quantity(Q.name, 2, -1, Q.range, Q.exogenous, reason))
+                    combinations[i].append(Quantity(Q.name, 1, -1, Q.range, Q.exogenous, reason))
+                    # """ also removed, I dont even know why anymore but it should not happen """
+                    # combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
 
-            # if not quantity.exogenous:
-            if 2 in quantity.range:
-                if quantity.value == 2:
-                    combinations[i].append(Quantity(quantity.name, 2, -1, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 1, -1, quantity.range, quantity.exogenous))
-                    combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-
-        elif quantity.derivative == 1:
-            if quantity.value == 0:
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                """ removed because value is going from point to range value -> cannot take an action inbetween """
-                # combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-            if quantity.value == 1:
-                combinations[i].append(Quantity(quantity.name, 1, 1, quantity.range, quantity.exogenous))
-                combinations[i].append(Quantity(quantity.name, 1, 0, quantity.range, quantity.exogenous))
-                # if not quantity.exogenous:
-                if 2 in quantity.range:
-                    combinations[i].append(Quantity(quantity.name, 2, 0, quantity.range, quantity.exogenous))
+        elif Q.derivative == 1:
+            if Q.value == 0:
+                combinations[i].append(Quantity(Q.name, 1, 1, Q.range, Q.exogenous, reason))
+                # """ removed because value is going from point to range value -> cannot take an action inbetween """
+                # combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous))
+            if Q.value == 1:
+                combinations[i].append(Quantity(Q.name, 1, 1, Q.range, Q.exogenous, reason))
+                combinations[i].append(Quantity(Q.name, 1, 0, Q.range, Q.exogenous, reason))
+                if 2 in Q.range:
+                    combinations[i].append(Quantity(Q.name, 2, 0, Q.range, Q.exogenous, reason))
 
     states = []
     """ Get all permutations of states """
     permutations = list(itertools.product(*combinations))
     for permutation in permutations:
-        tempState = State(-1, permutation)  # the id is assigned later
+        tempState = State(-1, permutation)
         states.append(tempState)
 
     """ Check each state with all the relationships, add to the list if valid """
     states = propagateVC(states, relationships)
     states = propagateP(states, relationships)
-    states = propagateI(states, relationships)
-    states = propagateConstraint(states, state)
+    states = propagateI(states, relationships, state)
+    states, _ = propagateConstraint(states, state)
 
     return states
 
@@ -228,6 +252,5 @@ def createGraph(initialState, relationships):
             break
 
         i += 1
-        # exit()
 
     return graph, end

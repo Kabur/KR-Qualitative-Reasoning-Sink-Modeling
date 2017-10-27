@@ -2,25 +2,23 @@ import graphviz as gv
 import functools
 
 
-def plotGraph(mygraph, end):
+def plotGraph(mygraph, end, filename="g4"):
     graph = functools.partial(gv.Graph, format='svg')
     digraph = functools.partial(gv.Digraph, format='svg')
 
     myStrGraph = [list() for i in range(10000)]
-    for i in range(end):
-        if len(mygraph[i]) == 1:
-            break
+    for i in range(end + 1):
         for j in range(len(mygraph[i])):
-            myStrGraph[i].append(mygraph[i][j].toString())
+            myStrGraph[i].append(mygraph[i][j].toString2())
 
-    print(myStrGraph)
+    # print(myStrGraph)
     nodes = []
     edges = []
-    mygraph
-    for i in range(end):
-        nodes.append(mygraph[i][0])
-        for state in mygraph[i][1:]:
-            edges.append((mygraph[i][0], state))
+
+    for i in range(end + 1):
+        nodes.append((str(mygraph[i][0].id), {'label': mygraph[i][0].toString2()}))
+        for j in range(1, len(mygraph[i])):
+            edges.append((str(mygraph[i][0].id), str(mygraph[i][j].id)))
 
     def add_nodes(graph, nodes):
         for n in nodes:
@@ -38,4 +36,4 @@ def plotGraph(mygraph, end):
                 graph.edge(*e)
         return graph
 
-    add_edges(add_nodes(digraph(), nodes), edges).render('img/g4')
+    add_edges(add_nodes(digraph(), nodes), edges).render('out/' + filename)

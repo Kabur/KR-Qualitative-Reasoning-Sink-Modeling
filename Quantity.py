@@ -1,12 +1,15 @@
 
 
 class Quantity:
-    def __init__(self, name, value, derivative, range, exogenous):
+    def __init__(self, name, value, derivative, range, exogenous,resultOf):
         self.name = name
         self.value = value
         self.derivative = derivative
         self.range = range
         self.exogenous = exogenous
+        self.resultOf=resultOf
+
+
 
     def printSelf(self):
         print("*"*100)

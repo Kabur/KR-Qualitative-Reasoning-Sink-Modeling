@@ -1,0 +1,210 @@
+digraph {
+	0 [label="State 0
+Inflow 0 0
+Volume 0 0
+Outflow 0 0
+Pressure 0 0
+Height 0 0
+"]
+	1 [label="State 1
+Inflow 0 +
+Volume 0 0
+Outflow 0 0
+Pressure 0 0
+Height 0 0
+"]
+	2 [label="State 2
+Inflow + +
+Volume 0 +
+Outflow 0 +
+Pressure 0 +
+Height 0 +
+"]
+	3 [label="State 3
+Inflow + +
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+"]
+	4 [label="State 4
+Inflow + +
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+"]
+	5 [label="State 5
+Inflow + +
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+"]
+	6 [label="State 6
+Inflow + 0
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+"]
+	7 [label="State 7
+Inflow + 0
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+"]
+	8 [label="State 8
+Inflow + 0
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+"]
+	9 [label="State 9
+Inflow + -
+Volume + +
+Outflow + +
+Pressure + +
+Height + +
+"]
+	10 [label="State 10
+Inflow + -
+Volume + 0
+Outflow + 0
+Pressure + 0
+Height + 0
+"]
+	11 [label="State 11
+Inflow + -
+Volume Max 0
+Outflow Max 0
+Pressure Max 0
+Height Max 0
+"]
+	12 [label="State 12
+Inflow + -
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+"]
+	13 [label="State 13
+Inflow + 0
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+"]
+	14 [label="State 14
+Inflow 0 0
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+"]
+	15 [label="State 15
+Inflow + -
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+"]
+	16 [label="State 16
+Inflow + 0
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+"]
+	17 [label="State 17
+Inflow 0 0
+Volume Max -
+Outflow Max -
+Pressure Max -
+Height Max -
+"]
+	18 [label="State 18
+Inflow + +
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+"]
+	19 [label="State 19
+Inflow 0 +
+Volume + -
+Outflow + -
+Pressure + -
+Height + -
+"]
+	0 -> 0
+	0 -> 1
+	1 -> 2
+	2 -> 3
+	3 -> 3
+	3 -> 4
+	3 -> 5
+	3 -> 6
+	3 -> 7
+	3 -> 8
+	4 -> 3
+	4 -> 6
+	5 -> 5
+	5 -> 8
+	6 -> 6
+	6 -> 7
+	6 -> 8
+	6 -> 3
+	6 -> 4
+	6 -> 5
+	6 -> 9
+	6 -> 10
+	6 -> 11
+	7 -> 7
+	7 -> 4
+	7 -> 10
+	8 -> 8
+	8 -> 5
+	8 -> 11
+	9 -> 9
+	9 -> 10
+	9 -> 11
+	9 -> 6
+	9 -> 7
+	9 -> 8
+	10 -> 12
+	10 -> 13
+	10 -> 14
+	11 -> 11
+	11 -> 15
+	11 -> 8
+	11 -> 16
+	11 -> 17
+	12 -> 12
+	12 -> 10
+	12 -> 13
+	12 -> 7
+	12 -> 14
+	12 -> 0
+	13 -> 13
+	13 -> 7
+	13 -> 18
+	13 -> 4
+	13 -> 12
+	13 -> 10
+	14 -> 14
+	14 -> 0
+	14 -> 19
+	14 -> 1
+	15 -> 12
+	16 -> 13
+	17 -> 14
+	18 -> 18
+	18 -> 4
+	18 -> 13
+	18 -> 7
+	19 -> 18
+	19 -> 4
+}
